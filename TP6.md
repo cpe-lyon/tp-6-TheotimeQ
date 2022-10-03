@@ -414,7 +414,6 @@ User@localhost:~$ sudo nano /etc/bind/named.conf.options
 
 ## 4. Sur le client, installez le navigateur en mode texte lynx et essayez de surfer sur fr.wikipedia.org (bienvenue dans le passé...)
 
-
 ```console
 User@localhost:~$ sudo apt install lynx
 ```
@@ -428,32 +427,17 @@ User@localhost:~$ sudo apt install lynx
 On modifie le fichier :
 
 ```console
-sudo nano /etc/bind/named.conf.local 
+User@localhost:~$ sudo nano /etc/bind/named.conf.local 
 ```
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-![](/TP6/IMG_14.png)
+![](/TP6/IMG_22.png)
 
 ## 2. Créez une copie appelée db.tpadmin.local du fichier db.local. Ce fichier est un fichier configuration
 
 On fait la copie : 
 
 ```console
-sudo cp /etc/bind/db.local /etc/bind/db.tpadmin.local
+User@localhost:~$ sudo cp /etc/bind/db.local /etc/bind/db.tpadmin.local
 ```
 
 On edite le fichier : 
@@ -462,7 +446,7 @@ On edite le fichier :
 sudo nano /etc/bind/db.tpadmin.local
 ```
 
-![](/TP6/IMG_14.png)
+![](/TP6/IMG_23.png)
 
 ## 3. Maintenant que nous avons configuré notre fichier de zone, il reste à configurer le fichier de zone inverse,
 
@@ -472,22 +456,31 @@ On edite le fichier :
 sudo nano /etc/bind/named.conf.local
 ```
 
-![](/TP6/IMG_14.png)
+![](/TP6/IMG_24.png)
 
-Creer le fichier db a partir de db.127? 
+CReation du fichier db :
 
-
----------------------------------------------------------------
-
+![](/TP6/IMG_203.jpg)
 
 ## 4. Utilisez les utilitaires named-checkconf et named-checkzone pour valider vos fichiers de configuration :
+
+`
 $ named-checkconf named.conf.local
 $ named-checkzone tpadmin.local /etc/bind/db.tpadmin.local
 $ named-checkzone 100.168.192.in-addr.arpa /etc/bind/db.192.168.100
-Modifiez le fichier /etc/systemd/resolved.conf et décommentez la section DNS.
-5. Redémarrer le serveur Bind9. Vous devriez maintenant être en mesure de « pinguer »les différentes
-machines du réseau.
+`
 
+![](/TP6/IMG_204.jpg)
+
+![](/TP6/IMG_205.jpg)
+
+Modifiez le fichier /etc/systemd/resolved.conf et décommentez la section DNS.
+
+## 5. Redémarrer le serveur Bind9. Vous devriez maintenant être en mesure de « pinguer »les différentes machines du réseau.
+
+On ping une autre machine sur le réseau : 
+
+![](/TP6/IMG_206.jpg)
 
 
 
